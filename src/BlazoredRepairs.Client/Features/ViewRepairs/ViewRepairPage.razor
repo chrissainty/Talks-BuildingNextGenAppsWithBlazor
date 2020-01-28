@@ -1,0 +1,51 @@
+﻿@page "/repairs"
+@inject HttpClient _httpClient
+@attribute [Authorize]
+
+<h1>View Repairs</h1>
+
+<AuthorizeView Roles="Planner">
+    <Authorized>
+        <Card>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Issue</th>
+                        <th>Trade</th>
+                        <th>Contact Number</th>
+                        <th>Complete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in _repairs)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Issue</td>
+                            <td>@item.Trade</td>
+                            <td>@item.ContactNumber</td>
+                            <td>@(item.Complete ? "Yes" : "No")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </Card>
+    </Authorized>
+    <NotAuthorized>
+        <Card>
+            <h3>Not Authorized</h3>
+            <p>You do not have permissions to view this area.</p>
+        </Card>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    List<RepairModel> _repairs = new List<RepairModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _repairs = await _httpClient.GetJsonAsync<List<RepairModel>>("/api/repairs");
+    }
+}

@@ -1,0 +1,81 @@
+﻿@import "../../../Styles/_Variables.scss";
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size-12 $size-32;
+    margin-bottom: $size-32;
+    background-color: #fff;
+    height: $size-64;
+    box-shadow: $box-shadow-medium;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: $font-size-30;
+        font-weight: $font-medium;
+        color: $grey-600;
+        background: $white;
+
+        .logo-text {
+            opacity: 1;
+            transition: all .2s;
+            margin: 0;
+
+            span {
+                font-weight: $font-black;
+                color: $orange-500;
+            }
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-size: $font-size-20;
+
+        button {
+            display: flex;
+            align-items: center;
+            margin: 0 $size-16;
+            background: white;
+            color: $orange-600;
+
+            i {
+                font-size: $font-size-24;
+
+                &:hover {
+                    color: #606c76;
+                }
+            }
+
+            &:hover {
+                color: #606c76;
+            }
+        }
+
+        a {
+            display: flex;
+            padding-left: $size-16;
+            color: $grey-500;
+            text-decoration: none;
+
+            &:hover {
+                color: $orange-500;
+            }
+        }
+
+        a.active {
+            color: $orange-500;
+        }
+
+        a:last-child {
+            padding-right: 0;
+        }
+    }
+}

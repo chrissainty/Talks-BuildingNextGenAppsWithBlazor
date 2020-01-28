@@ -1,0 +1,117 @@
+﻿@import "_Variables.scss";
+
+body {
+    color: $grey-600;
+    font-family: $font-family-text;
+    font-size: $font-size-16;
+    font-weight: $font-regular;
+    line-height: 1.5;
+    background-color: $grey-200;
+}
+
+a {
+    color: $orange-500;
+    transition: all 0.2s;
+
+    &:hover {
+        color: $orange-700;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        border-bottom: 2px solid $grey-400;
+        color: $grey-500;
+        font-weight: $font-bold;
+        letter-spacing: .1rem;
+        text-align: left;
+        padding: 0 1.25rem 1.25rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+
+    td {
+        border-bottom: 2px solid $grey-100;
+        padding: 1.25rem;
+        text-align: left;
+        font-weight: $font-regular;
+        color: $grey-600;
+    }
+
+    tbody > tr:hover > td {
+        background: $grey-100;
+    }
+
+    tbody > tr.no-items-row:hover > td {
+        background: none;
+    }
+
+    td.actions {
+        text-align: right;
+
+        button {
+            opacity: 0;
+            color: $grey-500;
+            margin-right: $size-4;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                color: $orange-500;
+            }
+        }
+    }
+
+    tr:hover > td.actions > button {
+        opacity: 1;
+    }
+
+    .no-items {
+        padding: 5rem;
+        text-align: center;
+
+        p {
+            color: $grey-400;
+        }
+    }
+}
+
+form {
+    .validation-errors {
+        border-left: .3rem solid $red-600;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1rem 1.5rem;
+        color: $red-600;
+        background: $red-100;
+        list-style: none;
+
+        &:last-child {
+            margin-bottom: 0
+        }
+    }
+
+    div {
+        input, textarea {
+            &.invalid {
+                border-color: $red-600;
+            }
+
+            &.modified.valid {
+                border-color: $green-600;
+            }
+        }
+
+        .validation-message {
+            color: $red-600;
+            font-weight: $font-bold;
+            margin-top: -$size-8;
+            margin-bottom: $size-18;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+﻿@import "../../../Styles/_Variables.scss";
+
+.navmenu {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    margin: 0 $size-64 0 0;
+
+    .menu-container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .menu {
+            display: flex;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    display: flex;
+                    align-items: baseline;
+                    padding: $size-12 $size-16;
+                    color: $grey-600;
+                    text-decoration: none;
+                    font-size: $font-size-16;
+                    font-weight: $font-medium;
+
+                    &:hover {
+                        color: $orange-500;
+
+                        i {
+                            color: $orange-500;
+                        }
+                    }
+
+                    i {
+                        color: $grey-500;
+                        margin-right: 1rem;
+                        font-size: $font-size-18;
+                    }
+
+                    span {
+                        transition: display .2s;
+                    }
+                }
+
+                a.active {
+                    background-color: $white;
+                    color: $orange-500;
+                    box-shadow: $box-shadow;
+                    border-radius: $size-8;
+
+                    i {
+                        color: $orange-500;
+                    }
+                }
+            }
+        }
+    }
+}

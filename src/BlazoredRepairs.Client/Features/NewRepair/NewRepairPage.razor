@@ -1,0 +1,71 @@
+﻿@page "/repairs/new"
+@inject HttpClient _httpClient
+@attribute [Authorize]
+
+<h1>New Repair</h1>
+
+@if (_showSuccess)
+{
+    <blockquote>
+        <strong>New Repair Saved Successfully!</strong>
+    </blockquote>
+}
+
+<Card>
+    <EditForm Model="_repairModel" OnValidSubmit="HandleFormSubmit">
+        <DataAnnotationsValidator />
+
+        <fieldset>
+            <div>
+                <label for="name">Name</label>
+                <InputText id="name" type="text" @bind-Value="_repairModel.Name" />
+                <ValidationMessage For="() => _repairModel.Name" />
+            </div>
+
+            <div>
+                <label for="issue">Issue</label>
+                <InputTextArea id="issue" type="text" @bind-Value="_repairModel.Issue" />
+                <ValidationMessage For="() => _repairModel.Issue" />
+            </div>
+
+            <div>
+                <label for="trade">Trade</label>
+                <InputSelect id="trade" type="text" @bind-Value="_repairModel.Trade">
+                    <option value="">-- Select Trade --</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Gas">Gas</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Roofer">Roofer</option>
+                    <option value="Window Fitter">Window Fitter</option>
+                </InputSelect>
+                <ValidationMessage For="() => _repairModel.Trade" />
+            </div>
+
+            <div>
+                <label for="number">Contact Number</label>
+                <InputText id="number" type="tel" @bind-Value="_repairModel.ContactNumber" />
+                <ValidationMessage For="() => _repairModel.ContactNumber" />
+            </div>
+
+            <button type="submit">Save</button>
+        </fieldset>
+    </EditForm>
+</Card>
+
+@code {
+    RepairModel _repairModel = new RepairModel();
+    bool _showSuccess = false;
+
+    private async Task HandleFormSubmit()
+    {
+        var content = new StringContent(JsonSerializer.Serialize(_repairModel), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync("/api/repairs", content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            _showSuccess = true;
+            _repairModel = new RepairModel();
+        }
+    }
+}

@@ -1,0 +1,47 @@
+﻿@inject HttpClient _httpClient
+@inject Providers.TokenAuthenticationStateProvider _tokenAuthStateProvider
+
+    <div class="login-panel">
+        <h1>Login</h1>
+        <EditForm Model="_loginModel" OnValidSubmit="HandleSubmit">
+            <fieldset>
+
+                <label>Username</label>
+                <InputText type="text" @bind-Value="_loginModel.Username" />
+                <ValidationMessage For="() => _loginModel.Username" />
+
+                <label>Password</label>
+                <InputText type="password" @bind-Value="_loginModel.Password" />
+                <ValidationMessage For="() => _loginModel.Password" />
+
+                @if (_showError)
+                {
+                    <p>Login Failed!</p>
+                }
+
+                <button type="submit">Login</button>
+
+            </fieldset>
+        </EditForm>
+    </div>
+
+    @code {
+
+        LoginModel _loginModel = new LoginModel();
+        bool _showError = false;
+
+        private async Task HandleSubmit()
+        {
+            var loginResult = await _httpClient.PostJsonAsync<LoginResult>("/api/login", _loginModel);
+
+            if (loginResult.Successful)
+            {
+                await _tokenAuthStateProvider.Login(loginResult.Token);
+            }
+            else
+            {
+                _showError = true;
+            }
+        }
+
+    }

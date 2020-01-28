@@ -1,0 +1,16 @@
+﻿@import "../../Styles/_Variables.scss";
+
+.login-panel {
+    background: $white;
+    padding: $size-32;
+    box-shadow: $box-shadow-medium;
+    border-radius: $size-8;
+    margin-bottom: $size-48;
+    position: relative;
+    max-width: 500px;
+    margin: $size-64 auto;
+
+    &.accent {
+        border-top: $size-4 solid $orange-500;
+    }
+}

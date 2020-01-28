@@ -1,0 +1,15 @@
+﻿@inject IJSRuntime _jsRuntime
+
+<canvas @ref="_chartContainer"></canvas>
+
+@code {
+    ElementReference _chartContainer;
+
+    [Parameter] public ChartData Data { get; set; }
+    [Parameter] public string Type { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await _jsRuntime.InvokeVoidAsync("blazoredRepairs.buildChart", _chartContainer, Type, Data);
+    }
+}

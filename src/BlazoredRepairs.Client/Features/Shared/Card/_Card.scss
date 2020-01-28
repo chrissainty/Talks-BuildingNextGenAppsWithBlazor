@@ -1,0 +1,14 @@
+﻿@import "../../Styles/_Variables.scss";
+
+.card {
+    background: $white;
+    padding: $size-32;
+    box-shadow: $box-shadow-medium;
+    border-radius: $size-8;
+    margin-bottom: $size-48;
+    position: relative;
+
+    &.accent {
+        border-top: $size-4 solid $orange-500;
+    }
+}

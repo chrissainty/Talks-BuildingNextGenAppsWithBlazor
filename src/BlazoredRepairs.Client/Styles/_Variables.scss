@@ -1,0 +1,113 @@
+﻿// Global Variables
+
+// Colours
+$white: #fff;
+
+$orange-100: #fffaf0;
+$orange-200: #feebc8;
+$orange-300: #fbd38d;
+$orange-400: #f6ad55;
+$orange-500: #ed8936;
+$orange-600: #dd6820;
+$orange-700: #c05621;
+$orange-800: #9c4221;
+$orange-900: #7b341e;
+
+$grey-100: hsl(204, 45%, 98%);
+$grey-200: hsl(210, 38%, 95%);
+$grey-300: hsl(214, 32%, 91%);
+$grey-400: hsl(211, 25%, 84%);
+$grey-500: hsl(214, 20%, 69%);
+$grey-600: hsl(216, 15%, 52%);
+$grey-700: hsl(218, 17%, 35%);
+$grey-800: hsl(218, 23%, 23%);
+$grey-900: hsl(220, 26%, 14%);
+
+$green-100: hsl(136, 100%, 97%);
+$green-200: hsl(139, 73%, 87%);
+$green-300: hsl(141, 60%, 75%);
+$green-400: hsl(143, 55%, 62%);
+$green-500: hsl(145, 46%, 51%);
+$green-600: hsl(148, 48%, 43%);
+$green-700: hsl(150, 48%, 35%);
+$green-800: hsl(152, 45%, 28%);
+$green-900: hsl(152, 42%, 23%);
+
+$red-100: hsl(0, 100%, 98%);
+$red-200: hsl(0, 95%, 92%);
+$red-300: hsl(0, 97%, 85%);
+$red-400: hsl(0, 95%, 75%);
+$red-500: hsl(0, 88%, 68%);
+$red-600: hsl(0, 76%, 57%);
+$red-700: hsl(0, 61%, 48%);
+$red-800: hsl(0, 56%, 39%);
+$red-900: hsl(0, 47%, 31%);
+
+$yellow-100: hsl(60, 100%, 97%);
+$yellow-200: hsl(58, 97%, 87%);
+$yellow-300: hsl(55, 92%, 76%);
+$yellow-400: hsl(51, 89%, 67%);
+$yellow-500: hsl(47, 81%, 61%);
+$yellow-600: hsl(40, 67%, 51%);
+$yellow-700: hsl(36, 71%, 42%);
+$yellow-800: hsl(32, 75%, 34%);
+$yellow-900: hsl(30, 76%, 26%);
+
+
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+$font-family-text: 'Roboto', sans-serif;
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-black: 900;
+
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-20: 20px;
+$font-size-24: 24px;
+$font-size-30: 30px;
+$font-size-36: 36px;
+$font-size-48: 48px;
+$font-size-60: 60px;
+$font-size-72: 72px;
+
+$h1-font-size: 1.4em * 2.5;
+$h2-font-size: 1.4em * 2;
+$h3-font-size: 1.4em * 1.75;
+$h4-font-size: 1.4em * 1.5;
+$h5-font-size: 1.4em * 1.25;
+$h6-font-size: 1.4em;
+
+
+// Sizes
+$size-2: 2px;
+$size-4: 4px;
+$size-8: 8px;
+$size-12: 12px;
+$size-16: 16px;
+$size-18: 18px;
+$size-24: 24px;
+$size-32: 32px;
+$size-48: 48px;
+$size-64: 64px;
+$size-128: 128px;
+$size-192: 192px;
+$size-256: 256px;
+$size-384: 384px;
+$size-512: 512px;
+$size-640: 640px;
+$size-768: 768px;
+
+
+// Shadows
+//$box-shadow: 0 $size-4 $size-8 0 rgba(0,0,0,0.12), 0 $size-2 $size-4 0 rgba(0,0,0,0.08);
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xlarge: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$box-shadow-xxlarge: 0 25px 50px -12px rgba(0, 0, 0, 0.25);

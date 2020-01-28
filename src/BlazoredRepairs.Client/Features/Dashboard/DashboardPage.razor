@@ -1,0 +1,44 @@
+﻿@page "/"
+@inject HttpClient _httpClient
+@attribute [Authorize]
+
+<h1>Dashboard</h1>
+
+<Card>
+    <Chart Data="_chartData" Type="pie" />
+</Card>
+
+@code {
+
+    ChartData _chartData = new ChartData();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var repairs = await _httpClient.GetJsonAsync<List<RepairModel>>("/api/repairs");
+        CreateChartData(repairs);
+    }
+
+    private void CreateChartData(List<RepairModel> repairs)
+    {
+        var completedIssues = repairs.Count(x => x.Complete);
+        var outstandingIssues = repairs.Count(x => !x.Complete);
+
+        _chartData.Labels.Add("Completed");
+        _chartData.Labels.Add("Outstanding");
+
+        var dataSet = new DataSet();
+        dataSet.Label = "Issue Status";
+        dataSet.BorderWidth = 1;
+
+        dataSet.Data.Add(completedIssues);
+        dataSet.Data.Add(outstandingIssues);
+
+        dataSet.BackgroundColor.Add("rgba(63, 191, 63, 0.5)");
+        dataSet.BackgroundColor.Add("rgba(54, 162, 235, 0.2)");
+
+        dataSet.BorderColor.Add("rgba(51, 153, 51, 0.70)");
+        dataSet.BorderColor.Add("rgba(54, 162, 235, 1)");
+
+        _chartData.Datasets.Add(dataSet);
+    }
+}
